@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HIMobil kur</title>
+  <style>
+    :root { color-scheme: light; }
+    body { margin: 0; font: 18px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f4f6f8; color: #12315c; }
+    main { max-width: 420px; margin: 48px auto; padding: 28px; background: #fff; border-radius: 20px; box-shadow: 0 10px 40px rgba(18,49,92,.08); }
+    img.icon { width: 72px; height: 72px; border-radius: 16px; background: #fff; }
+    h1 { font-size: 28px; margin: 16px 0 8px; }
+    p { margin: 0 0 14px; color: #3a4a63; }
+    a.install { display: block; text-align: center; background: #c41212; color: #fff; text-decoration: none; padding: 16px; border-radius: 12px; font-weight: 600; }
+    ol { padding-left: 20px; color: #3a4a63; }
+    .warn { font-size: 14px; background: #fff6e8; border-radius: 12px; padding: 12px 14px; }
+  </style>
+</head>
+<body>
+  <main>
+    <img class="icon" src="icon-512.png" alt="HIMobil">
+    <h1>HIMobil</h1>
+    <p>BIRIZ kayıtlı iPad’e ad hoc kurulum. WhatsApp içinden değil, <strong>Safari</strong> ile aç.</p>
+    <p><a class="install" id="install" href="#">HIMobil’i kur</a></p>
+    <ol>
+      <li>Bu sayfayı iPad Safari’de aç.</li>
+      <li>Kur’a dokun, <em>Install</em> de.</li>
+      <li>Ayarlar → Genel → VPN ve Cihaz Yönetimi → BIRIZ → Güven.</li>
+    </ol>
+    <p class="warn">Yalnızca BIRIZ’e kayıtlı cihazlara kurulur: Biriz iPad’i ve listedeki diğer iki cihaz. Farklı Wi-Fi sorun değil; internet yeter.</p>
+  </main>
+  <script>
+    const manifest = new URL("manifest.plist", location.href).href;
+    document.getElementById("install").href =
+      "itms-services://?action=download-manifest&url=" + encodeURIComponent(manifest);
+  </script>
+</body>
+</html>
